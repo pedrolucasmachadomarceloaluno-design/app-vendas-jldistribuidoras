@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Remove transparências indesejadas */
+* {
+  box-sizing: border-box;
+}
+
+/* Cards e componentes sólidos */
+.card-solid {
+  background-color: rgb(31, 41, 55) !important;
+  border: 1px solid rgb(55, 65, 81) !important;
+  backdrop-filter: none !important;
+}
+
+/* Header sólido */
+header {
+  background-color: rgb(31, 41, 55) !important;
+  backdrop-filter: none !important;
+}
+
+/* Modais com fundo sólido */
+[data-radix-dialog-overlay] {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(4px);
+}
+
+[data-radix-dialog-content] {
+  background-color: rgb(31, 41, 55) !important;
+  border: 1px solid rgb(55, 65, 81) !important;
+}
+
+/* Inputs e selects com fundo sólido */
+input, select, textarea {
+  background-color: rgb(55, 65, 81) !important;
+  border: 1px solid rgb(75, 85, 99) !important;
+  color: white !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: rgb(234, 179, 8) !important;
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.2) !important;
+  outline: none !important;
+}
+
+/* Botões com cores sólidas */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* Tabs com fundo sólido */
+[data-radix-tabs-list] {
+  background-color: rgb(31, 41, 55) !important;
+  border: 1px solid rgb(55, 65, 81) !important;
+}
+
+[data-radix-tabs-trigger] {
+  background-color: transparent !important;
+  color: rgb(156, 163, 175) !important;
+}
+
+[data-radix-tabs-trigger][data-state="active"] {
+  background-color: rgb(234, 179, 8) !important;
+  color: black !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(31, 41, 55);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(234, 179, 8);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(202, 138, 4);
+}
+
+/* Login form específico */
+.login-container {
+  background: linear-gradient(135deg, rgb(17, 24, 39) 0%, rgb(0, 0, 0) 100%);
+  min-height: 100vh;
+}
+
+.login-card {
+  background-color: rgb(31, 41, 55) !important;
+  border: 1px solid rgb(55, 65, 81) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Dashboard específico */
+.dashboard-bg {
+  background-color: rgb(17, 24, 39) !important;
+}
+
+/* Cards do dashboard */
+.metric-card {
+  background-color: rgb(31, 41, 55) !important;
+  border: 1px solid rgb(55, 65, 81) !important;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.metric-card:hover {
+  border-color: rgba(234, 179, 8, 0.5) !important;
+}
+
+/* Gráfico com fundo sólido */
+.chart-container {
+  background-color: rgb(17, 24, 39) !important;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+/* Badges com cores sólidas */
+.badge-default {
+  background-color: rgb(34, 197, 94) !important;
+  color: white !important;
+}
+
+.badge-secondary {
+  background-color: rgb(156, 163, 175) !important;
+  color: rgb(17, 24, 39) !important;
+}
+
+.badge-outline {
+  background-color: transparent !important;
+  border: 1px solid rgb(75, 85, 99) !important;
+  color: rgb(156, 163, 175) !important;
+}
+
+/* Animações suaves */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Responsividade melhorada */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .grid-responsive {
+    grid-template-columns: 1fr;
+  }
+  
+  .text-responsive {
+    font-size: 1.5rem;
+  }
+  
+  .card-mobile {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .login-card {
+    margin: 1rem;
+    width: calc(100% - 2rem);
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .search-mobile {
+    width: 100%;
+  }
+}
+
+/* Estados de loading */
+.loading-spinner {
+  border: 2px solid rgb(55, 65, 81);
+  border-top: 2px solid rgb(234, 179, 8);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estados de erro */
+.error-message {
+  background-color: rgba(153, 27, 27, 0.5) !important;
+  border: 1px solid rgb(185, 28, 28) !important;
+  color: rgb(252, 165, 165) !important;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Estados de sucesso */
+.success-message {
+  background-color: rgba(21, 128, 61, 0.5) !important;
+  border: 1px solid rgb(34, 197, 94) !important;
+  color: rgb(134, 239, 172) !important;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Melhorias de acessibilidade */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgb(234, 179, 8);
+  outline-offset: 2px;
+}
+
+/* Prevenção de sobreposição de z-index */
+.modal-overlay {
+  z-index: 50;
+}
+
+.modal-content {
+  z-index: 51;
+}
+
+.header-fixed {
+  z-index: 40;
+}
+
+.dropdown-menu {
+  z-index: 45;
+}
+
+/* Garantir que elementos não fiquem transparentes */
+.solid-bg {
+  background-color: rgb(31, 41, 55) !important;
+  opacity: 1 !important;
+}
+
+.solid-border {
+  border: 1px solid rgb(55, 65, 81) !important;
+}
+
+/* Melhorar contraste de texto */
+.text-high-contrast {
+  color: rgb(243, 244, 246) !important;
+}
+
+.text-medium-contrast {
+  color: rgb(156, 163, 175) !important;
+}
+
+.text-accent {
+  color: rgb(234, 179, 8) !important;
+}
